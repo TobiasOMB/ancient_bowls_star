@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ancient Bowls | Handgetöpferte Shisha-Köpfe</title>
+  <meta name="description" content="Ancient Bowls: handgetöpferte Shisha-Köpfe aus Ton. Aktuelle Kollektion, Limited Edition, Livestream, Events und Geschichte.">
+  <meta name="theme-color" content="#0E1216">
+  <link rel="icon" href="favicon.ico" sizes="any">
+  <link rel="icon" href="images/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+  <script>document.documentElement.className = 'js';</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/egg-stargate.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- Intro -->
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-inner">
+      <div class="intro-logo"><div class="arcane intro-ring" data-arcane="outer"></div><img class="intro-mark" src="images/logo.png" alt="" width="72" height="72"></div>
+      <span class="intro-name">Ancient Bowls</span>
+      <i class="intro-bar"></i>
+    </div>
+  </div>
+
+  <!-- Kopfzeile -->
+  <header class="site-header on-dark" id="header">
+    <a class="brand" href="#top" aria-label="Ancient Bowls, zurück zum Anfang">
+      <img class="brand-mark" src="images/logo.png" alt="" width="40" height="40">
+      <span class="brand-name">Ancient Bowls</span>
+    </a>
+    <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Menü öffnen">
+      <span class="burger-label" id="burger-label" aria-hidden="true">Menü</span>
+      <span class="burger-lines" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </header>
+
+  <!-- Vollbild-Menü -->
+  <nav class="menu" id="menu" aria-label="Hauptmenü" inert>
+    <div class="menu-inner">
+      <ul class="menu-list" id="menu-list"></ul>
+      <div class="menu-foot">
+        <p class="menu-claim">Handgetöpferte Shisha-Köpfe</p>
+        <div class="menu-social" id="menu-social"></div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Effekt-Filter für das Logo (Rauch/Energie), nicht sichtbar -->
+  <svg class="fx-defs" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <defs>
+      <filter id="fx-wisp-a" x="-35%" y="-35%" width="170%" height="170%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.021 0.032" numOctaves="4" seed="7" result="n">
+          <animate attributeName="baseFrequency" dur="52s" values="0.021 0.032;0.028 0.02;0.021 0.032" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="19" xChannelSelector="R" yChannelSelector="G" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="1.8" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="0.92 0 0 0 .08  0 .95 0 0 .1  0 0 1 0 .13  0 0 0 1.05 0"/>
+      </filter>
+      <filter id="fx-wisp-b" x="-45%" y="-45%" width="190%" height="190%" color-interpolation-filters="sRGB">
+        <feTurbulence type="fractalNoise" baseFrequency="0.009 0.017" numOctaves="4" seed="23" result="n">
+          <animate attributeName="baseFrequency" dur="68s" values="0.009 0.017;0.013 0.01;0.009 0.017" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="68" xChannelSelector="G" yChannelSelector="B" result="d"/>
+        <feGaussianBlur in="d" stdDeviation="6" result="b"/>
+        <feColorMatrix in="b" type="matrix" values="0.8 0 0 0 .1  0 .88 0 0 .12  0 0 1 0 .16  0 0 0 1.0 0"/>
+      </filter>
+    </defs>
+  </svg>
+
+  <main id="main">
+    <!-- Start -->
+    <section class="hero" id="top" data-tone="dark" aria-labelledby="hero-title">
+      <svg class="hero-fog" aria-hidden="true" preserveAspectRatio="none">
+        <filter id="fx-fog" x="0" y="0" width="100%" height="100%" color-interpolation-filters="sRGB">
+          <feTurbulence type="fractalNoise" baseFrequency="0.0046 0.0085" numOctaves="4" seed="4"/>
+          <feColorMatrix type="matrix" values="0 0 0 0 .5  0 0 0 0 .66  0 0 0 0 .86  1.9 0 0 0 -.62"/>
+        </filter>
+        <rect width="100%" height="100%" filter="url(#fx-fog)"/>
+      </svg>
+      <div class="hero-vignette" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <p class="hero-eyebrow" data-hero data-text="hero.eyebrow"></p>
+
+        <div class="hero-stage">
+          <h1 class="hero-title" id="hero-title"></h1>
+          <div class="hero-visual" aria-hidden="true">
+            <div class="hv-enter">
+              <div class="hero-aura"></div>
+              <div class="sigil sigil-t" data-sigil="tech"></div>
+              <div class="sigil sigil-s" data-sigil="static"></div>
+              <div class="sigil sigil-a" data-sigil="ticksA"></div>
+              <div class="sigil sigil-b" data-sigil="ticksB"></div>
+              <div class="arcane arcane-a" data-arcane="outer"></div>
+              <div class="arcane arcane-b" data-arcane="inner"></div>
+              <div class="hero-bowl-wrap">
+                <span class="hero-disc"></span>
+                <img class="logo-fx logo-fx-b" src="images/logo.png" alt="" width="512" height="512" aria-hidden="true">
+                <img class="logo-fx logo-fx-a" src="images/logo.png" alt="" width="512" height="512" aria-hidden="true">
+                <img class="hero-logo" src="images/logo.png" alt="" width="512" height="512">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-foot" data-hero>
+          <p class="hero-text" data-text="hero.text"></p>
+          <div class="hero-actions">
+            <a class="btn btn-solid" href="#kollektion"><span data-text="hero.primaryButton"></span></a>
+            <a class="btn" href="#geschichte"><span data-text="hero.secondaryButton"></span></a>
+          </div>
+        </div>
+        <a class="scroll-hint" href="#kollektion" aria-label="Nach unten scrollen"><i></i></a>
+      </div>
+    </section>
+
+    <!-- Laufband -->
+    <div class="marquee tone-dark" aria-hidden="true" data-tone="dark"><div class="marquee-track" id="marquee-track"></div></div>
+
+    <!-- Kollektion -->
+    <section class="section" id="kollektion" data-tone="light" aria-labelledby="kollektion-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-nav="kollektion"></p>
+          <h2 class="split" id="kollektion-title" data-text="collection.title"></h2>
+          <p class="season" data-reveal data-text="collection.season"></p>
+          <p class="section-intro" data-reveal data-text="collection.intro"></p>
+        </div>
+        <div class="pieces" id="pieces"></div>
+      </div>
+    </section>
+
+    <!-- Limited Edition -->
+    <section class="section section-limited tone-dark" id="limited" data-tone="dark" aria-labelledby="limited-title">
+      <div class="limited-word" aria-hidden="true">Limited</div>
+      <div class="container limited-grid">
+        <div class="limited-gallery" id="limited-gallery" data-reveal="img"></div>
+        <div class="limited-copy">
+          <p class="eyebrow" data-nav="limited"></p>
+          <p class="pill" id="limited-pill" data-reveal></p>
+          <h2 class="split sheen" id="limited-title" data-text="limited.title"></h2>
+          <h3 class="limited-name" data-reveal data-text="limited.name"></h3>
+          <p class="limited-text" data-reveal data-text="limited.text"></p>
+          <ul class="limited-facts" id="limited-facts"></ul>
+          <div class="release" data-reveal>
+            <p class="release-when" id="limited-when"></p>
+            <p class="release-label" id="limited-label"></p>
+            <div id="limited-countdown"></div>
+          </div>
+          <div class="limited-cta" data-reveal><a class="btn btn-solid" id="limited-btn" href="#" target="_blank" rel="noopener"></a></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Livestream -->
+    <section class="section bg-mist" id="livestream" data-tone="light" aria-labelledby="livestream-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-nav="livestream"></p>
+          <h2 class="split" id="livestream-title" data-text="livestream.title"></h2>
+          <p class="section-intro" data-reveal data-text="livestream.intro"></p>
+        </div>
+        <div class="stream-frame" id="stream-frame" data-reveal="img">
+          <div id="stream-player"></div>
+          <div class="stream-fallback" id="stream-fallback" hidden>
+            <img id="stream-offline-img" alt="Twitch-Kanal von Phil, derzeit offline" width="1280" height="720">
+          </div>
+          <i class="corner c1"></i><i class="corner c2"></i><i class="corner c3"></i><i class="corner c4"></i>
+        </div>
+        <div class="stream-info" data-reveal>
+          <div class="stream-text">
+            <p class="pill" id="stream-pill" hidden></p>
+            <p class="stream-next" id="stream-next"></p>
+            <p class="stream-title" id="stream-title"></p>
+          </div>
+          <div id="stream-countdown"></div>
+          <a class="btn" id="stream-link" href="#" target="_blank" rel="noopener"><span>Auf Twitch ansehen</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Events -->
+    <section class="section" id="events" data-tone="light" aria-labelledby="events-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-nav="events"></p>
+          <h2 class="split" id="events-title" data-text="events.title"></h2>
+          <p class="section-intro" data-reveal data-text="events.intro"></p>
+        </div>
+        <div class="events" id="events-list"></div>
+      </div>
+    </section>
+
+    <!-- Geschichte -->
+    <section class="section section-story tone-dark" id="geschichte" data-tone="dark" aria-labelledby="geschichte-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow" data-nav="geschichte"></p>
+          <h2 class="split" id="geschichte-title" data-text="story.title"></h2>
+          <p class="section-intro" data-reveal data-text="story.intro"></p>
+        </div>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer tone-dark" id="kontakt" data-tone="dark">
+    <div class="container">
+      <p class="eyebrow" data-nav="kontakt"></p>
+      <div class="footer-grid">
+        <div class="footer-about">
+          <h2 class="split" data-text="footer.title"></h2>
+          <p data-reveal data-text="footer.text"></p>
+        </div>
+        <ul class="social-list" id="footer-social" aria-label="Social Media"></ul>
+      </div>
+      <div class="footer-word" aria-hidden="true">Ancient Bowls</div>
+      <div class="footer-bottom">
+        <p class="footer-copy"><img class="footer-logo" src="images/logo.png" alt="" width="32" height="32" loading="lazy"><span>&copy; <span id="year"></span> Ancient Bowls</span></p>
+        <span class="footer-glyph" id="footer-glyph" aria-hidden="true"><svg viewBox="0 0 1024 1024" fill="none" stroke="currentColor" stroke-width="29" stroke-linejoin="miter" stroke-miterlimit="10"><circle cx="512" cy="204" r="154"/><circle cx="512" cy="204" r="76"/><path d="M511.5 357.5L972.1 972H606L716 818L512 565L307 818L418 972H50.9Z"/></svg></span>
+        <ul class="footer-links" id="footer-links"></ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Zurück nach oben: erscheint beim Hochscrollen, Ring zeigt den Scrollfortschritt -->
+  <button class="to-top" id="to-top" type="button" aria-label="Nach oben scrollen" tabindex="-1">
+    <svg class="to-top-ring" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="26" fill="none" stroke="rgba(255,255,255,.16)" stroke-width="2"/><circle id="to-top-bar" cx="28" cy="28" r="26" fill="none" stroke="#A9BBCB" stroke-width="2" stroke-linecap="round" stroke-dasharray="163.4" stroke-dashoffset="163.4" transform="rotate(-90 28 28)"/></svg>
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
+
+  <script src="content/content.js"></script>
+  <script src="js/egg-stargate.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
