@@ -1,5 +1,7 @@
 # Ancient Bowls: Landing Page
 
+https://tobiasomb.github.io/ancient_bowls_star/
+
 Reine HTML/CSS/JS-Seite, ohne Build-Schritt und ohne Datenbank.
 Alles, was Phil ändern möchte, steht in **einer** Datei: `content/content.js`.
 
