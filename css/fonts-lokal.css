@@ -1,0 +1,25 @@
+/* ============================================================
+   Lokale Schriften (optional, datenschutzfreundlich)
+   Ohne diese Datei nutzt die Seite Systemschriften (Georgia / System-Sans).
+   Mit diesen Schriften sieht die Seite wie im Entwurf aus.
+
+   Anleitung: siehe fonts/LIESMICH.txt
+   Danach in index.html (und impressum.html, datenschutz.html) die
+   auskommentierte Zeile <link rel="stylesheet" href="css/fonts-lokal.css">
+   aktivieren (Kommentarzeichen entfernen).
+   Beide Schriften stehen unter der SIL Open Font License (OFL) und dürfen
+   lokal gehostet werden.
+   ============================================================ */
+
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 300; font-display: swap; src: url('../fonts/CormorantGaramond-Light.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/CormorantGaramond-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/CormorantGaramond-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/CormorantGaramond-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 300; font-display: swap; src: url('../fonts/CormorantGaramond-LightItalic.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 400; font-display: swap; src: url('../fonts/CormorantGaramond-Italic.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-style: italic; font-weight: 500; font-display: swap; src: url('../fonts/CormorantGaramond-MediumItalic.woff2') format('woff2'); }
+
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 400; font-display: swap; src: url('../fonts/Manrope-Regular.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 500; font-display: swap; src: url('../fonts/Manrope-Medium.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 600; font-display: swap; src: url('../fonts/Manrope-SemiBold.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-style: normal; font-weight: 700; font-display: swap; src: url('../fonts/Manrope-Bold.woff2') format('woff2'); }

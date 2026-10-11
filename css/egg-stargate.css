@@ -1,0 +1,78 @@
+/* ============================================================
+   ANCIENT BOWLS – Stargate-Animation fürs Easter Egg (optional)
+   Gehört zu js/egg-stargate.js (alles Vektor/CSS, keine Bilddatei)
+   ============================================================ */
+
+/* Layout im Easter-Egg-Dialog */
+.egg-has-gate { overflow-y: auto; }
+.egg-has-gate .egg-flash, .egg-has-gate .egg-streak, .egg-has-gate .egg-ring { display: none; }
+.egg-has-gate .egg-body { margin: auto; padding: 1.2rem 0; gap: .8rem; }
+.egg-has-gate .egg-name { font-size: clamp(2.6rem, 11vw, 5.2rem); }
+.egg-has-gate .egg-lead { margin-bottom: -.2rem; }
+.egg.is-on .sg { animation-delay: .95s; }
+
+/* .sg ist ein Quadrat; der Außenradius des Rings (100 Einheiten) entspricht der halben Kantenlänge */
+.sg { --sg: min(78vw, 38vh, 420px); position: relative; width: var(--sg); height: var(--sg); margin: .6rem auto; }
+.sg > * { position: absolute; }
+
+/* Leuchten: Farbverlauf läuft am Rand exakt auf 0 aus, daher keine sichtbare Kante */
+.sg-halo { inset: -34%; border-radius: 50%; opacity: 0; transition: opacity 1.6s ease; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(120, 175, 255, .5), rgba(90, 140, 240, .26) 40%, rgba(70, 110, 220, .1) 68%, rgba(60, 100, 210, 0) 100%); }
+.sg.is-open .sg-halo { opacity: 1; animation: sgBreath 7s ease-in-out infinite alternate; }
+@keyframes sgBreath { from { opacity: .72; transform: scale(.97); } to { opacity: 1; transform: scale(1.03); } }
+
+/* ---------- Das Tor (SVG, immer scharf) ---------- */
+.sg-gate { left: -5%; top: -5%; width: 110%; height: 110%; overflow: visible; opacity: 0; transition: opacity .9s ease; }
+.sg.is-in .sg-gate { opacity: 1; }
+.sg-spin { transform-origin: 0 0; transform: rotate(-540deg); }
+.sg.is-spin .sg-spin { animation: sgSpin 1.9s cubic-bezier(.16, .84, .3, 1) forwards; }
+.sg.is-static .sg-spin { transform: none; }
+@keyframes sgSpin { from { transform: rotate(-540deg); } to { transform: rotate(0deg); } }
+
+.sg-c, .sg-c2 { fill: #0f1821; stroke: rgba(150, 185, 225, .35); stroke-width: .3; transition: fill .15s; }
+.sg-ch.on .sg-c, .sg-ch.on .sg-c2 { fill: #e8f4ff; stroke: #fff; filter: url(#sgGlow); animation: sgLock .7s ease-out; }
+@keyframes sgLock { 0% { fill: #fff; } 100% { fill: #e8f4ff; } }
+
+/* ---------- Ereignishorizont ---------- */
+/* Durchmesser = Innenradius 74 von 100 -> 74 % der Torbreite, leicht größer, damit die Innenkante überlappt */
+.sg-pool { inset: 12.6%; border-radius: 50%; overflow: hidden; }
+.sg-water { position: absolute; inset: 0; clip-path: circle(0% at 50% 50%); }
+.sg.is-open .sg-water { clip-path: circle(75% at 50% 50%); transition: clip-path 1.5s cubic-bezier(.22, .8, .24, 1); }
+.sg-water > * { position: absolute; }
+.sg-base { inset: 0; background: radial-gradient(circle at 50% 50%, #eef7ff 0, #a9d0ff 13%, #5a8eea 36%, #2553bb 64%, #0f2a7a 100%); }
+
+/* Drei Rauschschichten, die sich mit konstanter Geschwindigkeit drehen: kein Ruckeln, nahtlose Schleife (360 Grad) */
+.sg-layer { left: -27%; top: -27%; width: 154%; height: 154%; will-change: transform; }
+.sg-tex { display: block; width: 100%; height: 100%; }
+.sg-layer.l1 { opacity: .62; animation: sgTurn 110s linear infinite; }
+.sg-layer.l2 { opacity: .85; mix-blend-mode: screen; animation: sgTurn 70s linear infinite reverse; }
+.sg-layer.l3 { opacity: .45; mix-blend-mode: screen; animation: sgTurn 46s linear infinite; }
+@keyframes sgTurn { to { transform: rotate(360deg); } }
+
+/* Ringwellen: um volle Zeitversätze gestaffelt, dadurch von der ersten Sekunde an gleichmäßig */
+.sg-rip { left: 50%; top: 50%; width: 100%; height: 100%; margin: -50% 0 0 -50%; border-radius: 50%; border: 1.5px solid rgba(235, 246, 255, .55); opacity: 0;
+  animation: sgRip 6s cubic-bezier(.3, .55, .35, 1) infinite; animation-delay: calc(var(--i) * -1.2s); will-change: transform, opacity; }
+@keyframes sgRip { 0% { opacity: 0; transform: scale(.06); } 14% { opacity: .6; } 100% { opacity: 0; transform: scale(1.02); } }
+
+.sg-core { inset: 0; background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, .96) 0, rgba(232, 245, 255, .55) 9%, rgba(160, 205, 255, .2) 26%, rgba(160, 205, 255, 0) 50%); animation: sgCore 5.5s ease-in-out infinite alternate; }
+@keyframes sgCore { from { opacity: .8; transform: scale(.95); } to { opacity: 1; transform: scale(1.05); } }
+.sg-vig { inset: 0; background: radial-gradient(circle at 50% 50%, rgba(4, 10, 40, 0) 60%, rgba(4, 12, 55, .5) 86%, rgba(3, 8, 38, .85) 100%); }
+
+/* ---------- Öffnung: Druckwelle und Lichtblitz ---------- */
+.sg-kaw { inset: 12%; border-radius: 50%; opacity: 0; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .95), rgba(200, 228, 255, .62) 36%, rgba(120, 175, 255, .26) 66%, rgba(110, 170, 255, 0) 100%); }
+.sg-kaw::before, .sg-kaw::after { content: ""; position: absolute; inset: 6%; border-radius: 50%; border: 2px solid rgba(220, 238, 255, .8); opacity: 0; }
+.sg.is-kaw .sg-kaw { animation: sgKaw 1.7s cubic-bezier(.2, .7, .3, 1) forwards; }
+.sg.is-kaw .sg-kaw::before { animation: sgWave 1.6s ease-out forwards; }
+.sg.is-kaw .sg-kaw::after { animation: sgWave 1.6s ease-out .28s forwards; }
+@keyframes sgKaw { 0% { opacity: 0; transform: scale(.1); } 16% { opacity: 1; transform: scale(.85); } 42% { opacity: .9; transform: scale(1.6); } 100% { opacity: 0; transform: scale(2.3); } }
+@keyframes sgWave { 0% { opacity: .9; transform: scale(.3); } 100% { opacity: 0; transform: scale(2.4); } }
+.sg-flash { inset: -70%; border-radius: 50%; opacity: 0; pointer-events: none;
+  background: radial-gradient(closest-side, rgba(255, 255, 255, .8), rgba(150, 200, 255, .28) 42%, rgba(120, 180, 255, 0) 100%); }
+.sg.is-kaw .sg-flash { animation: sgFlash 1.4s ease-out forwards; }
+@keyframes sgFlash { 0% { opacity: 0; } 14% { opacity: 1; } 100% { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .sg-layer, .sg-rip, .sg-core, .sg-halo { animation: none !important; }
+  .sg-rip { display: none; }
+}

@@ -1,0 +1,33 @@
+# ============================================================
+# Beispiel-Konfiguration für Apache-Hosting (häufig bei deutschen Webhostern)
+# Benenne diese Datei in ".htaccess" um (Punkt am Anfang!) und lege sie in den
+# Hauptordner der Website. Läuft dein Hoster mit nginx oder IIS, bitte dort die
+# gleichen Einstellungen vornehmen oder den Support fragen.
+# ============================================================
+
+# 1) Immer HTTPS erzwingen (Pflicht für eine sichere Seite)
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# 2) Sicherheits- und Datenschutz-Header
+<IfModule mod_headers.c>
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), interest-cohort=()"
+  # Content-Security-Policy: erlaubt nur eigene Inhalte. Einzige Ausnahme ist der Twitch-Player,
+  # der erst nach Klick auf "Livestream laden" geladen wird.
+  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' https://player.twitch.tv; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://*.twitch.tv; frame-src https://player.twitch.tv https://*.twitch.tv; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+</IfModule>
+
+# 3) Komprimierung und Zwischenspeicherung (schnellere Seite)
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType font/woff2 "access plus 1 year"
+</IfModule>

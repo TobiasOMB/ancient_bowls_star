@@ -1,0 +1,34 @@
+SCHRIFTEN LOKAL EINBINDEN (optional, empfohlen)
+===============================================
+
+Warum?
+Lädt eine Website Schriften direkt von Google, wird dabei die IP-Adresse jedes Besuchers an Google
+übertragen. Das Landgericht München I hat dafür 2022 einen Schadensersatz zugesprochen (Az. 3 O 17493/20).
+Deshalb bindet diese Seite KEINE Google-Schriften mehr ein. Ohne weitere Schritte nutzt sie Systemschriften
+(Georgia und die Standardschrift des Geräts). Die Seite ist damit rechtlich sauber, sieht aber etwas anders aus.
+
+So bekommst du das Original-Design (ca. 10 Minuten, einmalig):
+1. Öffne https://gwfh.mranftl.com/fonts (google-webfonts-helper, lädt Schriften zum Selbst-Hosten herunter).
+2. Suche "Cormorant Garamond", wähle Zeichensatz "latin", die Stile
+   300, 300italic, regular, italic, 500, 500italic, 600  und lade das Paket herunter (woff2).
+3. Suche "Manrope", wähle "latin", Stile regular, 500, 600, 700 und lade es herunter (woff2).
+4. Benenne die Dateien so um und lege sie in diesen Ordner (fonts/):
+
+   CormorantGaramond-Light.woff2          (300)
+   CormorantGaramond-LightItalic.woff2    (300 italic)
+   CormorantGaramond-Regular.woff2        (regular)
+   CormorantGaramond-Italic.woff2         (italic)
+   CormorantGaramond-Medium.woff2         (500)
+   CormorantGaramond-MediumItalic.woff2   (500 italic)
+   CormorantGaramond-SemiBold.woff2       (600)
+   Manrope-Regular.woff2
+   Manrope-Medium.woff2
+   Manrope-SemiBold.woff2
+   Manrope-Bold.woff2
+
+5. Lege die Lizenzdatei (OFL.txt) beider Schriften ebenfalls in diesen Ordner.
+6. Öffne index.html, impressum.html und datenschutz.html und entferne in der Zeile
+   <!-- <link rel="stylesheet" href="css/fonts-lokal.css"> -->
+   die Kommentarzeichen, sodass daraus <link rel="stylesheet" href="css/fonts-lokal.css"> wird.
+
+Wichtig: Niemals einen <link> auf fonts.googleapis.com einbauen.
